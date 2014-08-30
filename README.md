@@ -1,8 +1,4 @@
-org.dita4publishers.common.xslt
+org.dita4publishers.xmldomain.doctypes
 ======================
 
-Provides XSLT modules and function libraries appropriate
-for any Open Toolkit transform. Primarily supports the
-D4P map-driven processing framework.
-
-Depends on the org.dita-community-common.xslt plugin <https://github.com/dita-community/org.dita-community.common.xslt>
+Document types for the D4P XML domain. Note that this vocabulary is obsolete with DITA 1.3, which provides its own XML domain. This domain conflicts with the DITA 1.3 version and should not be used with DITA 1.3.
