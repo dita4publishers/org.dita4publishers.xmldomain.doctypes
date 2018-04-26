@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<grammar xmlns="http://relaxng.org/ns/structure/1.0"
+         xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"
+         xmlns:rng="http://relaxng.org/ns/structure/1.0"
+         xmlns:dita="http://dita.oasis-open.org/architecture/2005/"
+         datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes">
+   <moduleDesc xmlns="http://dita.oasis-open.org/architecture/2005/">
+      <moduleTitle/>
+      <headerComment xml:space="preserve">
+     =============================================================
+
+     XML construct domain
+     
+     Provides phrase-level elements for identifying mentions of
+     XML constructs: element types, attributes, etc.
+     
+     Copyright (c) 2009, 2010 DITA For Publishers
+     
+     This domain module may be used by anyone without restriction.
+     
+     =============================================================
+</headerComment>
+      <moduleMetadata>
+         <moduleType>elementdomain</moduleType>
+         <moduleShortName>xml-d</moduleShortName>
+         <modulePublicIds>
+            <dtdMod>urn:xxx:dtd:xml.mod</dtdMod>
+            <dtdEnt>urn:xxx:dtd:xml.ent</dtdEnt>
+            <xsdMod>urn:xxx:xsd:xml.xsd</xsdMod>
+            <rncMod>urn:xxx:rnc:xml.rnc</rncMod>
+            <rngMod>urn:xxx:rng:xml.rng</rngMod>
+         </modulePublicIds>
+         <domainsContribution>(topic xml-d)</domainsContribution>
+      </moduleMetadata>
+   </moduleDesc>
+   <div>
+      <a:documentation>DOMAIN EXTENSION PATTERNS</a:documentation>
+      <define name="xml-d-xxx">
+         <ref name="xmlelem.element"/>
+         <ref name="xmlatt.element"/>
+         <ref name="textent.element"/>
+         <ref name="parment.element"/>
+      </define>
+   </div>
+   <div>
+      <a:documentation>ELEMENT TYPE NAME PATTERNS</a:documentation>
+      <define name="xmlelem">
+         <ref name="xmlelem.element"/>
+      </define>
+      <define name="xmlatt">
+         <ref name="xmlatt.element"/>
+      </define>
+      <define name="textent">
+         <ref name="textent.element"/>
+      </define>
+      <define name="parment">
+         <ref name="parment.element"/>
+      </define>
+   </div>
+   <div>
+      <a:documentation>ELEMENT TYPE DECLARATIONS</a:documentation>
+      <div>
+         <a:documentation>Long Name: xmlelem</a:documentation>
+         <define name="xmlelem.content">
+            <zeroOrMore>
+               <choice>
+                  <rng:text/>
+                  <rng:ref name="keyword"/>
+                  <rng:ref name="text"/>
+               </choice>
+            </zeroOrMore>
+         </define>
+         <define name="xmlelem.attributes">
+            <ref name="univ-atts"/>
+            <optional>
+               <attribute name="keyref"/>
+            </optional>
+            <optional>
+               <attribute name="outputclass"/>
+            </optional>
+         </define>
+         <define name="xmlelem.element">
+            <element name="xmlelem" dita:longName="xmlelem">
+               <a:documentation>docs go here.</a:documentation>
+               <ref name="xmlelem.attlist"/>
+               <ref name="xmlelem.content"/>
+            </element>
+         </define>
+         <define name="xmlelem.attlist" combine="interleave">
+            <ref name="xmlelem.attributes"/>
+         </define>
+      </div>
+      <div>
+         <a:documentation>Long Name: xmlatt</a:documentation>
+         <define name="xmlatt.content">
+            <zeroOrMore>
+               <choice>
+                  <rng:text/>
+                  <rng:ref name="keyword"/>
+                  <rng:ref name="text"/>
+               </choice>
+            </zeroOrMore>
+         </define>
+         <define name="xmlatt.attributes">
+            <ref name="univ-atts"/>
+            <optional>
+               <attribute name="keyref"/>
+            </optional>
+            <optional>
+               <attribute name="outputclass"/>
+            </optional>
+         </define>
+         <define name="xmlatt.element">
+            <element name="xmlatt" dita:longName="xmlatt">
+               <a:documentation>docs go here.</a:documentation>
+               <ref name="xmlatt.attlist"/>
+               <ref name="xmlatt.content"/>
+            </element>
+         </define>
+         <define name="xmlatt.attlist" combine="interleave">
+            <ref name="xmlatt.attributes"/>
+         </define>
+      </div>
+      <div>
+         <a:documentation>Long Name: textent</a:documentation>
+         <define name="textent.content">
+            <zeroOrMore>
+               <choice>
+                  <rng:text/>
+                  <rng:ref name="keyword"/>
+                  <rng:ref name="text"/>
+               </choice>
+            </zeroOrMore>
+         </define>
+         <define name="textent.attributes">
+            <ref name="univ-atts"/>
+            <optional>
+               <attribute name="keyref"/>
+            </optional>
+            <optional>
+               <attribute name="outputclass"/>
+            </optional>
+         </define>
+         <define name="textent.element">
+            <element name="textent" dita:longName="textent">
+               <a:documentation>docs go here.</a:documentation>
+               <ref name="textent.attlist"/>
+               <ref name="textent.content"/>
+            </element>
+         </define>
+         <define name="textent.attlist" combine="interleave">
+            <ref name="textent.attributes"/>
+         </define>
+      </div>
+      <div>
+         <a:documentation>Long Name: parment</a:documentation>
+         <define name="parment.content">
+            <zeroOrMore>
+               <choice>
+                  <rng:text/>
+                  <rng:ref name="keyword"/>
+                  <rng:ref name="text"/>
+               </choice>
+            </zeroOrMore>
+         </define>
+         <define name="parment.attributes">
+            <ref name="univ-atts"/>
+            <optional>
+               <attribute name="keyref"/>
+            </optional>
+            <optional>
+               <attribute name="outputclass"/>
+            </optional>
+         </define>
+         <define name="parment.element">
+            <element name="parment" dita:longName="parment">
+               <a:documentation>docs go here.</a:documentation>
+               <ref name="parment.attlist"/>
+               <ref name="parment.content"/>
+            </element>
+         </define>
+         <define name="parment.attlist" combine="interleave">
+            <ref name="parment.attributes"/>
+         </define>
+      </div>
+      <div>
+         <a:documentation>Long Name: numcharref</a:documentation>
+         <define name="numcharref.content">
+            <zeroOrMore>
+               <choice>
+                  <rng:text/>
+                  <rng:ref name="keyword"/>
+                  <rng:ref name="text"/>
+               </choice>
+            </zeroOrMore>
+         </define>
+         <define name="numcharref.attributes">
+            <ref name="univ-atts"/>
+            <optional>
+               <attribute name="keyref"/>
+            </optional>
+            <optional>
+               <attribute name="outputclass"/>
+            </optional>
+         </define>
+         <define name="numcharref.element">
+            <element name="numcharref" dita:longName="numcharref">
+               <a:documentation>docs go here.</a:documentation>
+               <ref name="numcharref.attlist"/>
+               <ref name="numcharref.content"/>
+            </element>
+         </define>
+         <define name="numcharref.attlist" combine="interleave">
+            <ref name="numcharref.attributes"/>
+         </define>
+      </div>
+   </div>
+   <div>
+      <a:documentation>Specialization attributes. Global attributes and class defaults</a:documentation>
+      <define name="xmlelem.attlist" combine="interleave">
+         <ref name="global-atts"/>
+         <optional>
+            <attribute name="class" a:defaultValue="+ topic/keyword xml-d/xmlelem "/>
+         </optional>
+      </define>
+      <define name="xmlatt.attlist" combine="interleave">
+         <ref name="global-atts"/>
+         <optional>
+            <attribute name="class" a:defaultValue="+ topic/keyword xml-d/xmlatt "/>
+         </optional>
+      </define>
+      <define name="textent.attlist" combine="interleave">
+         <ref name="global-atts"/>
+         <optional>
+            <attribute name="class" a:defaultValue="+ topic/keyword xml-d/textent "/>
+         </optional>
+      </define>
+      <define name="parment.attlist" combine="interleave">
+         <ref name="global-atts"/>
+         <optional>
+            <attribute name="class" a:defaultValue="+ topic/keyword xml-d/parment "/>
+         </optional>
+      </define>
+      <define name="numcharref.attlist" combine="interleave">
+         <ref name="global-atts"/>
+         <optional>
+            <attribute name="class" a:defaultValue="+ topic/keyword xml-d/numcharref "/>
+         </optional>
+      </define>
+   </div>
+</grammar>
